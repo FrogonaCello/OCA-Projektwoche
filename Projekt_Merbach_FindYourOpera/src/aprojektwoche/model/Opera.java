@@ -66,7 +66,7 @@ public class Opera extends Composer implements Performable{
 	
 	// Konstruktor
 	
-	public Opera(Composer composer, OperaName name, Year year, LocalDate version, String[] keywords, StringBuilder information) {
+	public Opera(Composer composer, OperaName name, Year year, LocalDate version, StringBuilder information) {
 	this.setComposer(composer);
 	this.setOperaName(name);
 	
@@ -74,7 +74,8 @@ public class Opera extends Composer implements Performable{
 	if (year != null) this.setYear(year);
 	if (version != null) this.setVersion(version);
 	
-	this.setKeyword(keywords);
+	// Array of keywords belongs to each enum OperaName
+	this.setKeyword(name.getKeywords());
 	this.setInformation(information);
 	
 	}

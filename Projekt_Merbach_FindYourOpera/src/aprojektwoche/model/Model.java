@@ -7,11 +7,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
-import java.util.function.Predicate;
 
-public class Model implements Predicate<Event>{
+public class Model{
 	
-	private Event testevent, testevent01, testevent02, testevent03, testevent04, testevent05, testevent06;
+	private Event testevent, testevent01, testevent02, testevent03, testevent04, testevent05, testevent06, testevent07, testevent08;
 	private ArrayList<Event> performances = new ArrayList<>();
 	
 	public Event getTestevent() {
@@ -69,6 +68,24 @@ public class Model implements Predicate<Event>{
 	public void setTestevent06(Event testevent06) {
 		this.testevent06 = testevent06;
 	}
+	
+	public Event getTestevent07() {
+		return this.testevent06;
+	}
+
+	public void setTestevent07(Event testevent06) {
+		this.testevent06 = testevent06;
+	}
+	
+	public Event getTestevent08() {
+		return this.testevent06;
+	}
+
+	public void setTestevent08(Event testevent06) {
+		this.testevent06 = testevent06;
+	}
+	
+	
 
 	public ArrayList<Event> getPerformances() {
 		return this.performances;
@@ -79,32 +96,39 @@ public class Model implements Predicate<Event>{
 	}
 
 	public Model() {
-		// Prüfung Veranstaltungsort
+		// Adressen und Veranstaltungsorte
 		
 		Address testaddress = new Address("Schlosspark", 5, 87456, "Wolkingen");
 		Address testaddress02 = new Address("Hexenberg", 7, 03452, "Auingen");
+		
 		Venue testvenue = new Venue("Auf dem Saturnring", testaddress, "saturnring.de");
 		Venue testvenue02 = new Venue("Amphitheater Wolkig", testaddress02, "wolkig.de");
 		
 		
-		// Prüfung Komponist
+		// Komponisten
 		
 		Composer testcomposer = new Composer("Antonin Dvorak", LocalDate.of(1841, 9, 8), false, null);
 		Composer testcomposer01 = new Composer("Francis Poulenc", LocalDate.of(1899, 1, 7), false, LocalDate.of(1963, 1, 30));
-		Composer testcomposer02 = new Composer("Richard Wagner", LocalDate.of(1813, 5, 22), true, null);
+		Composer testcomposer02 = new Composer("Richard Wagner", LocalDate.of(1813, 5, 22), false, LocalDate.of(1883, 2, 13));
+		
+		Composer testcomposer03 = new Composer("Franz Schubert", LocalDate.of(1797, 1, 31), false, LocalDate.of(1828, 11, 19));
+		Composer testcomposer04 = new Composer("Arvo Pärt", LocalDate.of(1935, 9, 11), true, null);
 		
 		
-		// Prüfung Oper
+		// Opern und Musikstücke
 		
 		Opera testopera = new Opera(testcomposer02, OperaName.MEISTERSINGER, Year.of(1868), null,
-				new String[] { "meistersinger", "nürnberg", "nuernberg" }, new StringBuilder(
+				new StringBuilder(
 						"https://de.wikipedia.org/wiki/Die_Meistersinger_von_Nürnberg"));
 		Opera testopera02 = new Opera(testcomposer, OperaName.RUSALKA, Year.of(1900), null, 
-				new String[] {"rusalka", "arielle", "dvorak"}, new StringBuilder("https://de.wikipedia.org/wiki/Rusalka_(Oper)"));
+				new StringBuilder("https://de.wikipedia.org/wiki/Rusalka_(Oper)"));
 		
-		Opera testopera03 = new Opera(testcomposer01, OperaName.HUMAINE, Year.of(1959), null, new String[] {"voix", "humaine", "poulenc"}, new StringBuilder("https://de.wikipedia.org/wiki/La_voix_humaine"));
+		Opera testopera03 = new Opera(testcomposer01, OperaName.HUMAINE, Year.of(1959), null, new StringBuilder("https://de.wikipedia.org/wiki/La_voix_humaine"));
 		
-		// Prüfung Event
+		PieceOfMusic testmusicpiece = new PieceOfMusic(testcomposer03, PieceName.KLAVIERTRIO_ESDUR);
+		PieceOfMusic testmusicpiece01 = new PieceOfMusic(testcomposer04, PieceName.SPIEGEL);
+		
+		// Events
 
 		this.testevent = new Event(LocalDateTime.of(2020,12,05, 18,30), testopera03, testvenue);
 		this.testevent01 = new Event(LocalDateTime.of(2020, 11,11, 18,30), testopera, testvenue);
@@ -113,15 +137,18 @@ public class Model implements Predicate<Event>{
 		this.testevent04 = new Event(LocalDateTime.of(2020, 12, 24, 17, 30), testopera02, testvenue02);
 		this.testevent05 = new Event(LocalDateTime.of(2021, 01, 27, 17, 30), testopera02, testvenue);
 		this.testevent06 = new Event(LocalDateTime.of(2021,01,27, 18,30), testopera03, testvenue02);
+		this.testevent07 = new Event(LocalDateTime.of(2020, 12, 10, 17, 00), testmusicpiece, testvenue);
+		this.testevent08 = new Event(LocalDateTime.of(2020, 12, 24, 22, 00), testmusicpiece01, testvenue);
 		
-	}
-	
-	// aus Predicate
-	
-	@Override
-	public boolean test(Event t) {
 		
-		return false;
+		// Erstellen des Klassenarrays
+		
+		ArrayList<Event> performables = new ArrayList<Event>();
+		
+		performables.addAll(Arrays.asList(testevent, testevent01, testevent02,
+				testevent03, testevent04, testevent05, testevent06, testevent07, testevent08));
+		
+		this.setPerformances(performables);
 	}
 	
 	// Methoden
@@ -129,12 +156,6 @@ public class Model implements Predicate<Event>{
 	public ArrayList<Event> startPerformables() {
 
 		ArrayList<Event> performables = this.getPerformances();
-				
-				// Einfügen in Klassenarray
-		
-				
-				performables.addAll(Arrays.asList(testevent, testevent01, testevent02,
-						testevent03, testevent04, testevent05, testevent06));
 				
 				// Entfernen vergangener Events
 				
@@ -157,7 +178,11 @@ public class Model implements Predicate<Event>{
 					this.getPerformances().get(2).getPerformance().getPerformablesKeywords(),
 					this.getPerformances().get(3).getPerformance().getPerformablesKeywords(),
 					this.getPerformances().get(4).getPerformance().getPerformablesKeywords(),
-					this.getPerformances().get(5).getPerformance().getPerformablesKeywords()};
+					this.getPerformances().get(5).getPerformance().getPerformablesKeywords(),
+					this.getPerformances().get(6).getPerformance().getPerformablesKeywords(),
+					this.getPerformances().get(7).getPerformance().getPerformablesKeywords()};
+					
+				System.out.println(this.getPerformances().get(0).getPerformance().getPerformablesKeywords()[1]);
 				
 				ArrayList<Event> eventsMeetingSearchCriteria = new ArrayList<>();
 
