@@ -1,5 +1,7 @@
 package aprojektwoche.model;
 
+import java.util.ArrayList;
+
 public enum OperaName {
 	
 	MEISTERSINGER("Die Meistersinger von Nürnberg", new String[] 
@@ -8,20 +10,24 @@ public enum OperaName {
 	HUMAINE("La Voix Humaine", new String[] {"voix", "humaine", "poulenc"});
 	
 	private final String name;
-	private final String[] keywords;
+	private ArrayList<String> keywords = new ArrayList<String>();;
 	
 	private OperaName(String name, String[] keywords) {
 		this.name = name;
-		this.keywords = keywords;
+		
+		for (String keyword : keywords) {
+			this.keywords.add(keyword);
+		}
+		
 	}
 	
 	public String getName() {
 		return this.name;
 	}
 	
-	public String[] getKeywords() {
-		String[] keywords = this.keywords;
-		return keywords;
+	public ArrayList<String> getKeywords() {
+		ArrayList<String> keywordsOut = this.keywords;
+		return keywordsOut;
 	}
 
 }

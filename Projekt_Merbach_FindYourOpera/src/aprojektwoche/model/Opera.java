@@ -2,6 +2,7 @@ package aprojektwoche.model;
 
 import java.time.LocalDate;
 import java.time.Year;
+import java.util.ArrayList;
 
 public class Opera extends Composer implements Performable{
 	
@@ -11,7 +12,7 @@ public class Opera extends Composer implements Performable{
 	private OperaName operaName;
 	private Year year;
 	private LocalDate version;
-	private String[] keywords;
+	private ArrayList<String> keywords;
 	private StringBuilder information;
 	
 	// Getter/Setter
@@ -48,11 +49,11 @@ public class Opera extends Composer implements Performable{
 		this.version = version;
 	}
 	
-	public String[] getKeywords() {
+	public ArrayList<String> getKeywords() {
 		return this.keywords;
 	}
 	
-	public void setKeyword(String[] keywords) {
+	public void setKeyword(ArrayList<String> keywords) {
 		this.keywords = keywords;
 	}
 	
@@ -102,8 +103,8 @@ public class Opera extends Composer implements Performable{
 
 	// Interface Methode
 	@Override
-	public String[] getPerformablesKeywords() {
-		String[] keywords = this.getKeywords();
+	public ArrayList<String> getPerformablesKeywords() {
+		ArrayList<String> keywords = this.getKeywords();
 		return keywords;
 	}
 

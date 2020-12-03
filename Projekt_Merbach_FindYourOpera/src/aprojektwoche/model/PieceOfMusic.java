@@ -1,10 +1,12 @@
 package aprojektwoche.model;
 
+import java.util.ArrayList;
+
 public class PieceOfMusic extends Composer implements Performable{
 
 	private Composer composer;
 	private PieceName pieceName;
-	private String[] keywords;
+	private ArrayList<String> keywords;
 	
 	
 	
@@ -24,11 +26,11 @@ public class PieceOfMusic extends Composer implements Performable{
 		this.pieceName = pieceName;
 	}
 
-	public String[] getKeywords() {
+	public ArrayList<String> getKeywords() {
 		return keywords;
 	}
 
-	public void setKeywords(String[] keywords) {
+	public void setKeywords(ArrayList<String> keywords) {
 		this.keywords = keywords;
 	}
 	
@@ -54,8 +56,8 @@ public class PieceOfMusic extends Composer implements Performable{
 	// überschriebene Methoden aus Performables
 
 	@Override
-	public String[] getPerformablesKeywords() {
-		String[] keywords = this.getKeywords();
+	public ArrayList<String> getPerformablesKeywords() {
+		ArrayList<String> keywords = this.getKeywords();
 		return keywords;
 	}
 

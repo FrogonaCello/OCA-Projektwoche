@@ -164,6 +164,9 @@ public class Model{
 				// Sortieren nach Datum und Zeit
 
 				Collections.sort(performables);
+				
+				// Übergeben der bereinigten und sortierten Liste an das Klassenattribut
+				this.setPerformances(performables);
 						
 				return performables;
 	}
@@ -172,28 +175,27 @@ public class Model{
 	public List<Event> getResults(String text) {
 		// split input in single Strings
 				String[] singleInputValues = text.toLowerCase().split(" ");
-				// use static perfomances array to get to the keywords array from every single event
-				String[][] searchArray = new String[][] {this.getPerformances().get(0).getPerformance().getPerformablesKeywords(), 
-					this.getPerformances().get(1).getPerformance().getPerformablesKeywords(), 
-					this.getPerformances().get(2).getPerformance().getPerformablesKeywords(),
-					this.getPerformances().get(3).getPerformance().getPerformablesKeywords(),
-					this.getPerformances().get(4).getPerformance().getPerformablesKeywords(),
-					this.getPerformances().get(5).getPerformance().getPerformablesKeywords(),
-					this.getPerformances().get(6).getPerformance().getPerformablesKeywords(),
-					this.getPerformances().get(7).getPerformance().getPerformablesKeywords()};
+				// use dynamic perfomances array to get to the keywords array from every single event
+				
+				ArrayList<ArrayList<String>> searchArray = new ArrayList<ArrayList<String>>();
+				
+				for (Event e : this.getPerformances()) {
+					searchArray.add(e.getPerformance().getPerformablesKeywords());
+				}
+				
+				System.out.println(searchArray);
 					
-				System.out.println(this.getPerformances().get(0).getPerformance().getPerformablesKeywords()[1]);
 				
 				ArrayList<Event> eventsMeetingSearchCriteria = new ArrayList<>();
 
 				
-				for (int j = 0; j < searchArray.length; j++) {
+				for (int j = 0; j < searchArray.size(); j++) {
 				// iterate through the single terms of the inputstring 
 					valueDimensionOfSearchArray: 
 					for (String term : singleInputValues) {
 					
 						// get the keywords from the performances´ array
-						String[] arrayOfKeywordValues = searchArray[j];
+						ArrayList<String> arrayOfKeywordValues = searchArray.get(j);
 					
 						// iterate through the single keywords
 						for (String keyword : arrayOfKeywordValues) {
