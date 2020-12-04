@@ -53,7 +53,7 @@ public class West extends JPanel{
 		
 
 		for (int i = 0; i<4; i++ ) {
-			this.setEventName(upcomingEvents.get(i).getPerformance().getPerformablesName());
+			this.setEventName(upcomingEvents.get(i).getPerformance().getPerformableName());
 			this.setDatum(upcomingEvents.get(i).infoDate());
 			this.setTown(upcomingEvents.get(i).infoTown());
 

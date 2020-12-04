@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public enum PieceName {
 	
 	KLAVIERTRIO_ESDUR("Klaviertrio Es-Dur, op. 100 (D929)", new String[] { 
-			"Klaviertrio", "Piano Trio", "100", "Franz Schubert", "Es-Dur"}),
+			"Klaviertrio", "op 100", "Franz Schubert", "Es-Dur"}),
 	SPIEGEL("Spiegel im Spiegel", new String[] {"Spiegel im Spiegel", "Arvo Pärt", "F-Dur"});
 
 	private final String name;

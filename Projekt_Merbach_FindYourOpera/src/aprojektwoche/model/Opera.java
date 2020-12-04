@@ -13,7 +13,7 @@ public class Opera extends Composer implements Performable{
 	private Year year;
 	private LocalDate version;
 	private ArrayList<String> keywords;
-	private StringBuilder information;
+	private StringBuilder info;
 	
 	// Getter/Setter
 	
@@ -57,12 +57,12 @@ public class Opera extends Composer implements Performable{
 		this.keywords = keywords;
 	}
 	
-	public StringBuilder getInformation() {
-		return this.information;
+	public StringBuilder getInfo() {
+		return this.info;
 	}
 	
-	public void setInformation(StringBuilder information) {
-		this.information = information;
+	public void setInfo(StringBuilder information) {
+		this.info = information;
 	}
 	
 	// Konstruktor
@@ -77,7 +77,7 @@ public class Opera extends Composer implements Performable{
 	
 	// Array of keywords belongs to each enum OperaName
 	this.setKeyword(name.getKeywords());
-	this.setInformation(information);
+	this.setInfo(information);
 	
 	}
 	
@@ -96,20 +96,20 @@ public class Opera extends Composer implements Performable{
 			output += ", version: " + this.getVersion().format(FormatDateTime.date_tf);
 		}
 		
-		output += "\nFurther information: \n" + this.getInformation();
+		output += "\nFurther information: \n" + this.getInfo();
 		
 		return output;
 	}
 
 	// Interface Methode
 	@Override
-	public ArrayList<String> getPerformablesKeywords() {
+	public ArrayList<String> getPerformableKeywords() {
 		ArrayList<String> keywords = this.getKeywords();
 		return keywords;
 	}
 
 	@Override
-	public String getPerformablesName() {
+	public String getPerformableName() {
 		String name = this.getOperaName().getName();
 		return name;
 	}

@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public enum OperaName {
 	
 	MEISTERSINGER("Die Meistersinger von Nürnberg", new String[] 
-			{ "meistersinger", "nürnberg", "nuernberg" }), 
+			{ "meistersinger", "nürnberg", "nuernberg", "wagner" }), 
 	RUSALKA("Rusalka", new String[] {"rusalka", "arielle", "dvorak"}), 
 	HUMAINE("La Voix Humaine", new String[] {"voix", "humaine", "poulenc"});
 	

@@ -98,47 +98,47 @@ public class Model{
 	public Model() {
 		// Adressen und Veranstaltungsorte
 		
-		Address testaddress = new Address("Schlosspark", 5, 87456, "Wolkingen");
-		Address testaddress02 = new Address("Hexenberg", 7, 03452, "Auingen");
+		Address wolkingen = new Address("Schlosspark", 5, 87456, "Wolkingen");
+		Address auingen = new Address("Hexenberg", 7, 03452, "Auingen");
 		
-		Venue testvenue = new Venue("Auf dem Saturnring", testaddress, "saturnring.de");
-		Venue testvenue02 = new Venue("Amphitheater Wolkig", testaddress02, "wolkig.de");
+		Venue saturnring = new Venue("Auf dem Saturnring", wolkingen, "saturnring.de");
+		Venue wolkig = new Venue("Amphitheater Wolkig", auingen, "wolkig.de");
 		
 		
 		// Komponisten
 		
-		Composer testcomposer = new Composer("Antonin Dvorak", LocalDate.of(1841, 9, 8), false, null);
-		Composer testcomposer01 = new Composer("Francis Poulenc", LocalDate.of(1899, 1, 7), false, LocalDate.of(1963, 1, 30));
-		Composer testcomposer02 = new Composer("Richard Wagner", LocalDate.of(1813, 5, 22), false, LocalDate.of(1883, 2, 13));
+		Composer dvorak = new Composer("Antonin Dvorak", LocalDate.of(1841, 9, 8), false, null);
+		Composer poulenc = new Composer("Francis Poulenc", LocalDate.of(1899, 1, 7), false, LocalDate.of(1963, 1, 30));
+		Composer wagner = new Composer("Richard Wagner", LocalDate.of(1813, 5, 22), false, LocalDate.of(1883, 2, 13));
 		
-		Composer testcomposer03 = new Composer("Franz Schubert", LocalDate.of(1797, 1, 31), false, LocalDate.of(1828, 11, 19));
-		Composer testcomposer04 = new Composer("Arvo Pärt", LocalDate.of(1935, 9, 11), true, null);
+		Composer schubert = new Composer("Franz Schubert", LocalDate.of(1797, 1, 31), false, LocalDate.of(1828, 11, 19));
+		Composer paert = new Composer("Arvo Pärt", LocalDate.of(1935, 9, 11), true, null);
 		
 		
 		// Opern und Musikstücke
 		
-		Opera testopera = new Opera(testcomposer02, OperaName.MEISTERSINGER, Year.of(1868), null,
+		Opera meistersinger = new Opera(wagner, OperaName.MEISTERSINGER, Year.of(1868), null,
 				new StringBuilder(
 						"https://de.wikipedia.org/wiki/Die_Meistersinger_von_Nürnberg"));
-		Opera testopera02 = new Opera(testcomposer, OperaName.RUSALKA, Year.of(1900), null, 
+		Opera rusalka = new Opera(dvorak, OperaName.RUSALKA, Year.of(1900), null, 
 				new StringBuilder("https://de.wikipedia.org/wiki/Rusalka_(Oper)"));
 		
-		Opera testopera03 = new Opera(testcomposer01, OperaName.HUMAINE, Year.of(1959), null, new StringBuilder("https://de.wikipedia.org/wiki/La_voix_humaine"));
+		Opera humaine = new Opera(poulenc, OperaName.HUMAINE, Year.of(1959), null, new StringBuilder("https://de.wikipedia.org/wiki/La_voix_humaine"));
 		
-		PieceOfMusic testmusicpiece = new PieceOfMusic(testcomposer03, PieceName.KLAVIERTRIO_ESDUR);
-		PieceOfMusic testmusicpiece01 = new PieceOfMusic(testcomposer04, PieceName.SPIEGEL);
+		PieceOfMusic schubert_klaviertrio = new PieceOfMusic(schubert, PieceName.KLAVIERTRIO_ESDUR);
+		PieceOfMusic spiegelSpiegel = new PieceOfMusic(paert, PieceName.SPIEGEL);
 		
 		// Events
 
-		this.testevent = new Event(LocalDateTime.of(2020,12,05, 18,30), testopera03, testvenue);
-		this.testevent01 = new Event(LocalDateTime.of(2020, 11,11, 18,30), testopera, testvenue);
-		this.testevent02 = new Event(LocalDateTime.of(2020, 12, 12, 20, 30), testopera, testvenue02);
-		this.testevent03 = new Event(LocalDateTime.of(2020, 12, 17, 20, 30), testopera, testvenue);
-		this.testevent04 = new Event(LocalDateTime.of(2020, 12, 24, 17, 30), testopera02, testvenue02);
-		this.testevent05 = new Event(LocalDateTime.of(2021, 01, 27, 17, 30), testopera02, testvenue);
-		this.testevent06 = new Event(LocalDateTime.of(2021,01,27, 18,30), testopera03, testvenue02);
-		this.testevent07 = new Event(LocalDateTime.of(2020, 12, 10, 17, 00), testmusicpiece, testvenue);
-		this.testevent08 = new Event(LocalDateTime.of(2020, 12, 24, 22, 00), testmusicpiece01, testvenue);
+		this.testevent = new Event(LocalDateTime.of(2020,12,05, 18,30), humaine, saturnring);
+		this.testevent01 = new Event(LocalDateTime.of(2020, 11,11, 18,30), meistersinger, saturnring);
+		this.testevent02 = new Event(LocalDateTime.of(2020, 12, 12, 20, 30), meistersinger, wolkig);
+		this.testevent03 = new Event(LocalDateTime.of(2020, 12, 17, 20, 30), meistersinger, saturnring);
+		this.testevent04 = new Event(LocalDateTime.of(2020, 12, 24, 17, 30), rusalka, wolkig);
+		this.testevent05 = new Event(LocalDateTime.of(2021, 01, 27, 17, 30), rusalka, saturnring);
+		this.testevent06 = new Event(LocalDateTime.of(2021,01,27, 18,30), humaine, wolkig);
+		this.testevent07 = new Event(LocalDateTime.of(2020, 12, 10, 17, 00), schubert_klaviertrio, saturnring);
+		this.testevent08 = new Event(LocalDateTime.of(2020, 12, 24, 22, 00), spiegelSpiegel, saturnring);
 		
 		
 		// Erstellen des Klassenarrays
@@ -180,11 +180,8 @@ public class Model{
 				ArrayList<ArrayList<String>> searchArray = new ArrayList<ArrayList<String>>();
 				
 				for (Event e : this.getPerformances()) {
-					searchArray.add(e.getPerformance().getPerformablesKeywords());
-				}
-				
-				System.out.println(searchArray);
-					
+					searchArray.add(e.getPerformance().getPerformableKeywords());
+				}					
 				
 				ArrayList<Event> eventsMeetingSearchCriteria = new ArrayList<>();
 

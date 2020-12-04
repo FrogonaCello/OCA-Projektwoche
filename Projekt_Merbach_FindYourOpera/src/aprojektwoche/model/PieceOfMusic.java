@@ -6,7 +6,7 @@ public class PieceOfMusic extends Composer implements Performable{
 
 	private Composer composer;
 	private PieceName pieceName;
-	private ArrayList<String> keywords;
+	private ArrayList<String> keywordsList;
 	
 	
 	
@@ -26,12 +26,12 @@ public class PieceOfMusic extends Composer implements Performable{
 		this.pieceName = pieceName;
 	}
 
-	public ArrayList<String> getKeywords() {
-		return keywords;
+	public ArrayList<String> getKeywordsList() {
+		return keywordsList;
 	}
 
-	public void setKeywords(ArrayList<String> keywords) {
-		this.keywords = keywords;
+	public void setKeywordsList(ArrayList<String> keywords) {
+		this.keywordsList = keywords;
 	}
 	
 	// Konstruktor
@@ -41,7 +41,7 @@ public class PieceOfMusic extends Composer implements Performable{
 		this.setPieceName(name);
 		
 		// Keywords Array wird aus dem Datensatz des gewählten Stücks geholt
-		this.setKeywords(name.getKeywords());
+		this.setKeywordsList(name.getKeywords());
 	}
 	
 	// toString()
@@ -56,13 +56,13 @@ public class PieceOfMusic extends Composer implements Performable{
 	// überschriebene Methoden aus Performables
 
 	@Override
-	public ArrayList<String> getPerformablesKeywords() {
-		ArrayList<String> keywords = this.getKeywords();
+	public ArrayList<String> getPerformableKeywords() {
+		ArrayList<String> keywords = this.getKeywordsList();
 		return keywords;
 	}
 
 	@Override
-	public String getPerformablesName() {
+	public String getPerformableName() {
 		String name = this.getPieceName().getName();
 		return name;
 	}
