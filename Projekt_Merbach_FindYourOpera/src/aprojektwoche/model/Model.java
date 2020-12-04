@@ -202,10 +202,10 @@ public class Model{
 						// iterate through the single keywords
 						for (String keyword : arrayOfKeywordValues) {
 							
-							// if one of the keywords matches a single term from input, then print the performance
+							// if one of the keywords matches a single term (partly or entirely)  from input, then print the performance
 							// and leave this iteration of position j immediately
 							
-							if (keyword.equals(term)) {
+							if (keyword.contains(term)) {
 
 								eventsMeetingSearchCriteria.add(this.getPerformances().get(j));
 								break valueDimensionOfSearchArray;
