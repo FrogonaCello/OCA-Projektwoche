@@ -196,11 +196,8 @@ public class Model{
 					valueDimensionOfSearchArray: 
 					for (String term : singleInputValues) {
 					
-						// get the keywords from the performances´ array
-						ArrayList<String> arrayOfKeywordValues = searchArray.get(j);
-					
 						// iterate through the single keywords
-						for (String keyword : arrayOfKeywordValues) {
+						for (String keyword : searchArray.get(j)) {
 							
 							// if one of the keywords matches a single term (partly or entirely)  from input, then print the performance
 							// and leave this iteration of position j immediately
