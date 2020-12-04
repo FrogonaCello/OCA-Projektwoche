@@ -103,13 +103,13 @@ public class Opera extends Composer implements Performable{
 
 	// Interface Methode
 	@Override
-	public ArrayList<String> getPerformableKeywords() {
+	public ArrayList<String> getPerformablesKeywords() {
 		ArrayList<String> keywords = this.getKeywords();
 		return keywords;
 	}
 
 	@Override
-	public String getPerformableName() {
+	public String getPerformablesName() {
 		String name = this.getOperaName().getName();
 		return name;
 	}

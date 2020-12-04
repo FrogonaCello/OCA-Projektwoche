@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public interface Performable {
 
-	public ArrayList<String> getPerformableKeywords();
+	public ArrayList<String> getPerformablesKeywords();
 	
-	public String getPerformableName();
+	public String getPerformablesName();
 }

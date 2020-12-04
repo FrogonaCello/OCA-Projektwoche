@@ -180,7 +180,7 @@ public class Model{
 				ArrayList<ArrayList<String>> searchArray = new ArrayList<ArrayList<String>>();
 				
 				for (Event e : this.getPerformances()) {
-					searchArray.add(e.getPerformance().getPerformableKeywords());
+					searchArray.add(e.getPerformance().getPerformablesKeywords());
 				}					
 				
 				ArrayList<Event> eventsMeetingSearchCriteria = new ArrayList<>();

@@ -56,13 +56,13 @@ public class PieceOfMusic extends Composer implements Performable{
 	// überschriebene Methoden aus Performables
 
 	@Override
-	public ArrayList<String> getPerformableKeywords() {
+	public ArrayList<String> getPerformablesKeywords() {
 		ArrayList<String> keywords = this.getKeywordsList();
 		return keywords;
 	}
 
 	@Override
-	public String getPerformableName() {
+	public String getPerformablesName() {
 		String name = this.getPieceName().getName();
 		return name;
 	}
