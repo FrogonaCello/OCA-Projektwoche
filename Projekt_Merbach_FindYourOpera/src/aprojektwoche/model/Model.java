@@ -110,9 +110,11 @@ public class Model{
 		Composer dvorak = new Composer("Antonin Dvorak", LocalDate.of(1841, 9, 8), false, null);
 		Composer poulenc = new Composer("Francis Poulenc", LocalDate.of(1899, 1, 7), false, LocalDate.of(1963, 1, 30));
 		Composer wagner = new Composer("Richard Wagner", LocalDate.of(1813, 5, 22), false, LocalDate.of(1883, 2, 13));
-		
+		Composer schumann = new Composer("Clara Schumann", LocalDate.of(1819, 9, 13), false, LocalDate.of(1896, 5, 13));
 		Composer schubert = new Composer("Franz Schubert", LocalDate.of(1797, 1, 31), false, LocalDate.of(1828, 11, 19));
 		Composer paert = new Composer("Arvo Pärt", LocalDate.of(1935, 9, 11), true, null);
+		Composer saariaho = new Composer("Kaija Saariaho", LocalDate.of(1952, 10, 14), true, null);
+		Composer unsuk = new Composer("Chin Un-suk", LocalDate.of(1961, 01, 01), true, null);
 		
 		
 		// Opern und Musikstücke
@@ -125,17 +127,20 @@ public class Model{
 		
 		Opera humaine = new Opera(poulenc, OperaName.HUMAINE, Year.of(1959), null, new StringBuilder("https://de.wikipedia.org/wiki/La_voix_humaine"));
 		
-		PieceOfMusic schubert_klaviertrio = new PieceOfMusic(schubert, PieceName.KLAVIERTRIO_ESDUR);
-		PieceOfMusic spiegelSpiegel = new PieceOfMusic(paert, PieceName.SPIEGEL);
+		PieceOfMusic schubert_klaviertrio = new PieceOfMusic(schubert, PieceName.KLAVIERTRIO_ESDUR_SCHUBERT);
+		PieceOfMusic spiegelSpiegel = new PieceOfMusic(paert, PieceName.SPIEGEL_PAERT);
+		PieceOfMusic schumann_klavierkonzert = new PieceOfMusic(schumann, PieceName.KLAVIERKONZERT_AMOL_SCHUMANN);
+		PieceOfMusic saariaho_sept = new PieceOfMusic(saariaho, PieceName.SEPT_PAPILLONS);
+		PieceOfMusic cellokonzert_unsuk = new PieceOfMusic(unsuk, PieceName.CELLOKONZERT_UN_SUK);
 		
 		// Events
 
 		this.testevent = new Event(LocalDateTime.of(2020,12,05, 18,30), humaine, saturnring);
 		this.testevent01 = new Event(LocalDateTime.of(2020, 11,11, 18,30), meistersinger, saturnring);
-		this.testevent02 = new Event(LocalDateTime.of(2020, 12, 12, 20, 30), meistersinger, wolkig);
-		this.testevent03 = new Event(LocalDateTime.of(2020, 12, 17, 20, 30), meistersinger, saturnring);
+		this.testevent02 = new Event(LocalDateTime.of(2020, 12, 12, 20, 30), schumann_klavierkonzert, wolkig);
+		this.testevent03 = new Event(LocalDateTime.of(2020, 12, 17, 20, 30), saariaho_sept, saturnring);
 		this.testevent04 = new Event(LocalDateTime.of(2020, 12, 24, 17, 30), rusalka, wolkig);
-		this.testevent05 = new Event(LocalDateTime.of(2021, 01, 27, 17, 30), rusalka, saturnring);
+		this.testevent05 = new Event(LocalDateTime.of(2021, 01, 27, 17, 30), cellokonzert_unsuk, saturnring);
 		this.testevent06 = new Event(LocalDateTime.of(2021,01,27, 18,30), humaine, wolkig);
 		this.testevent07 = new Event(LocalDateTime.of(2020, 12, 10, 17, 00), schubert_klaviertrio, saturnring);
 		this.testevent08 = new Event(LocalDateTime.of(2020, 12, 24, 22, 00), spiegelSpiegel, saturnring);
@@ -210,8 +215,6 @@ public class Model{
 				}
 		return eventsMeetingSearchCriteria;
 	}
-
-
 
 
 }

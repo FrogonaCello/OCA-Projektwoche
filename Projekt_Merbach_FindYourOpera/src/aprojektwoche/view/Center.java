@@ -43,7 +43,7 @@ public class Center extends JPanel {
 		
 		Font f = new Font("Arial", Font.PLAIN, 15);
 			
-		JTextField searchArea = new JTextField("Which opera do you want to see?", 35);
+		JTextField searchArea = new JTextField("Choose an opera or a specific piece of music you want to see?", 35);
 		searchArea.setBackground(Color.white);
 		searchArea.setFont(f);
 		searchArea.setForeground(Color.BLUE);

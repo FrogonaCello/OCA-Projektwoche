@@ -1,5 +1,6 @@
 package aprojektwoche.model;
 
+import java.time.DateTimeException;
 import java.time.LocalDate;
 
 public class Composer {
@@ -53,8 +54,10 @@ public class Composer {
 	  
 	  public Composer(String name, LocalDate start, boolean alive, LocalDate end) throws NullPointerException{
 		  this.setName(name);
-		  this.setStartOfLife(start);
+		  this.setStartOfLife(start);  
 		  this.setAlive(alive);
+		  
+		  // wenn Komponist noch lebt, wird keine Lebensspanne angegeben
 		  if (alive == false && end != null) {
 			  this.setLifeCycle(end);
 		  }
