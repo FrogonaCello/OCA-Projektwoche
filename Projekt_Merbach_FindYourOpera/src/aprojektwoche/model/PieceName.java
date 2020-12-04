@@ -5,8 +5,8 @@ import java.util.ArrayList;
 public enum PieceName {
 	
 	KLAVIERTRIO_ESDUR("Klaviertrio Es-Dur, op. 100 (D929)", new String[] { 
-			"klaviertrio", "op 100", "franz schubert", "es-dur"}),
-	SPIEGEL("Spiegel im Spiegel", new String[] {"spiegel im spiegel", "arvo pärt", "f-dur"});
+			"klaviertrio", "d929", "100", "franz", "schubert", "es-dur"}),
+	SPIEGEL("Spiegel im Spiegel", new String[] {"spiegel", "arvo", "pärt", "f-dur"});
 
 	private final String name;
 	private ArrayList<String> keywords = new ArrayList<String>();

@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public enum OperaName {
 	
 	MEISTERSINGER("Die Meistersinger von Nürnberg", new String[] 
-			{ "meistersinger", "nürnberg", "nuernberg", "richard wagner" }), 
-	RUSALKA("Rusalka", new String[] {"rusalka", "arielle", "antonin dvorak"}), 
-	HUMAINE("La Voix Humaine", new String[] {"voix", "humaine", "francis poulenc"});
+			{ "meistersinger", "nürnberg", "nuernberg", "richard", "wagner" }), 
+	RUSALKA("Rusalka", new String[] {"rusalka", "arielle", "antonin", "dvorak"}), 
+	HUMAINE("La Voix Humaine", new String[] {"voix", "humaine", "francis", "poulenc"});
 	
 	private final String name;
 	private ArrayList<String> keywords = new ArrayList<String>();;
